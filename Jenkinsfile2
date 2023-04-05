@@ -29,7 +29,7 @@ pipeline {
    }  
     stage('Pushing it to the DockerHub') {
        steps {
-       withCredentials([usernamePassword(credentialsId: 'Dockerhub', passwordvariable: 'dockerHubPassword', usernamevariable: 'dockerHubUser')]) {
+       WithCredentials([usernamePassword(credentialsId: 'Dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
         sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
         sh 'docker push udaydocker123/insure-me:latest'
         }
