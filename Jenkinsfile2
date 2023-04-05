@@ -32,7 +32,7 @@ pipeline {
         withCredentials([string(credentialsId: 'dock-password', variable: 'dockerHubPassword')]) {
         sh "${dockerCMD} login -u udaydocker123 -p ${dockerHubPassword}"
         sh "${dockerCMD} push udaydocker123/insure-me:latest"
-            
         }
+       }
   }
  }    
