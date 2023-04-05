@@ -30,7 +30,7 @@ pipeline {
      stage('Pushing Image to DockerHub') {
          steps {
 	 withCredentials([usernamePassword(credentialsId: 'Dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-         sh "docker login -u ${env.dockerHubUser} -p ${env.I[IdockerHubPassword}"
+         sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
          sh 'docker push udaydocker123/insureproject:latest'
         }
        }
