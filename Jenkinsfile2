@@ -24,7 +24,7 @@ pipeline {
 	  }
      stage('Docker Image Creation') {
     steps {
-    sh 'docker build -t udaydocker123/insureproject:${env.BUILD_ID} .'
+    sh 'docker build -t udaydocker123/insureproject:latest .'
     }	
    }  
   }
