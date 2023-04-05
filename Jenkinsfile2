@@ -27,11 +27,11 @@ pipeline {
     sh 'docker build -t udaydocker123/insureproject:latest .'
     }	
    }  
-    stage('Pushing it ot the DockerHub'){
-        echo 'Pushing the docker image to DockerHub'
-        withCredentials([string(credentialsId: 'dock-password', variable: 'dockerHubPassword')]) {
-        sh "${dockerCMD} login -u udaydocker123 -p ${dockerHubPassword}"
-        sh "${dockerCMD} push udaydocker123/insure-me:latest"
+    stage('Pushing it to the DockerHub') {
+       steps {
+       withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordvariable: 'dockerHubPassword', usernamevariable: 'dockerHubUser')]) {
+        sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+        sh 'docker push udaydocker123/insure-me:latest"
         }
        }
   }
