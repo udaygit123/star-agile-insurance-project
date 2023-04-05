@@ -31,7 +31,7 @@ pipeline {
        steps {
        withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordvariable: 'dockerHubPassword', usernamevariable: 'dockerHubUser')]) {
         sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-        sh 'docker push udaydocker123/insure-me:latest"
+        sh 'docker push udaydocker123/insure-me:latest'
         }
        }
   }
